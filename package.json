@@ -5,41 +5,17 @@
   "main": "main.js",
   "build": {
     "appId": "work.pingleware.timeboxing",
-    "buildVersion": "1",
+    "buildVersion": "20230709121800",
     "productName": "Timeboxing Virtual Assistant",
     "copyright": "Copyright © 2023 ${author}",
     "win": {
-      "icon": "./icons/win/logo.ico",
-      "target": [
-        "nsis",
-        "appx"
-      ]
+      "icon": "./icons/win/logo.ico"
     },
     "linux": {
-      "target": "deb",
-      "icon": "./assets/logo.png",
-      "category": "Office",
-      "synopsis": "Timeboxing Virtual Assistants"
+      "icon": "./assets/logo.png"
     },
     "mac": {
-      "category": "public.app-category.office",
       "icon": "./icons/mac/logo.icns"
-    },
-    "dmg": {
-      "title": "${productName}_${version}",
-      "icon": "./icons/mac/logo.icns",
-      "contents": [
-        {
-          "x": 110,
-          "y": 150
-        },
-        {
-          "x": 240,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
     },
     "files": [],
     "extraFiles": []
@@ -47,7 +23,6 @@
   "scripts": {
     "start": "electron .",
     "dist:mac": "electron-builder --mac --universal",
-    "dist:mac:arm64": "electron-builder --mac --arm64",
     "dist:win": "electron-builder  -win --universal",
     "dist:snap": "snapcraft remote-build --build-on=amd64,arm64"
   },
@@ -55,7 +30,7 @@
   "author": "PRESSPAGE ENTERTAINMENT INC dba PINGLEWARE <maintainers@pingleware.work>",
   "license": "CC-BY-4.0",
   "devDependencies": {
-    "electron": "^25.2.0",
-    "electron-builder": "^24.4.0"
-  }
+    "electron": "^17.1.2",
+    "electron-builder": "^22.14.13"
+}
 }
