@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Time Boxing List Virtual Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+      .header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+      }
+      .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+      }            
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+</head>
+<body>
+  <fieldset>
+    <legend>Calendar</legend>
+    <div id="calendar"></div>
+  </fieldset>
+  <fieldset>
+    <legend>Add a Task</legend>
+    <label for="add-task">Task</label>
+    <input type="text" class="w3-input w3-block" id="add-task" value="" />
+    <label for="add-timelimit">Time Limit (<i>in minutes</i>)</label>
+    <input type="number" steps="any" class="w3-input w3-block" id="add-timelimit" value="" />
+    <label for="add-date">Date &amp; Time</label>
+    <input type="datetime-local" class="w3-input w3-block" id="add-date" value="" />
+    <button class="w3-button w3-block w3-black" id="add-now">Add</button>
+    <br/>
+    <button class="w3-button w3-block w3-orange" id="clear-tasks">Clear All Tasks</button>
+  </fieldset>
+  <script src="js/virtual-assistant.js"></script>
+  <script>
+    document.getElementById("add-now").addEventListener("click",function(e){
+      e.preventDefault();
+      addTask(document.getElementById("add-task").value,document.getElementById("add-timelimit").value,document.getElementById("add-date").value);
+    })
+    document.getElementById("clear-tasks").addEventListener("click",function(){
+      clearTasks();
+    })
+  </script>
+</body>
+</html>
