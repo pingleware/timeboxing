@@ -7,6 +7,12 @@ window.onload = function() {
     calendar.render();
     loadSettings();
     updateCalendar();
+    var events = calendar.getEvents();
+    document.getElementById("remove-task").innerHTML = `<option value="">Select</option>`;
+    events.forEach(function(event, index){
+      console.log(event);
+      document.getElementById("remove-task").innerHTML += `<option value="${index}">${event.title} [${event.start}-${event.end}]</option>`;
+    });
 }
 
 

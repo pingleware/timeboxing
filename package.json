@@ -47,6 +47,7 @@
   "scripts": {
     "start": "electron .",
     "dist:mac": "electron-builder --mac --universal",
+    "dist:mac:arm64": "electron-builder --mac --arm64",
     "dist:win": "electron-builder  -win --universal",
     "dist:snap": "snapcraft remote-build --build-on=amd64,arm64"
   },

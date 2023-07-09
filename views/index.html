@@ -31,14 +31,23 @@
     <div id="calendar"></div>
   </fieldset>
   <fieldset>
-    <legend>Add a Task</legend>
-    <label for="add-task">Task</label>
-    <input type="text" class="w3-input w3-block" id="add-task" value="" />
-    <label for="add-timelimit">Time Limit (<i>in minutes</i>)</label>
-    <input type="number" steps="any" class="w3-input w3-block" id="add-timelimit" value="" />
-    <label for="add-date">Date &amp; Time</label>
-    <input type="datetime-local" class="w3-input w3-block" id="add-date" value="" />
-    <button class="w3-button w3-block w3-black" id="add-now">Add</button>
+    <legend>Task Management</legend>
+    <fieldset>
+      <legend>Add a Task</legend>
+      <label for="add-task">Task</label>
+      <input type="text" class="w3-input w3-block" id="add-task" value="" />
+      <label for="add-timelimit">Time Limit (<i>in minutes</i>)</label>
+      <input type="number" steps="any" class="w3-input w3-block" id="add-timelimit" value="" />
+      <label for="add-date">Date &amp; Time</label>
+      <input type="datetime-local" class="w3-input w3-block" id="add-date" value="" />
+      <button class="w3-button w3-block w3-black" id="add-now">Add</button>  
+    </fieldset>
+    <fieldset>
+      <legend>Remove a Task</legend>
+      <label for="remove-task">Task</label>
+      <select id="remove-task" class="w3-input w3-block"></select>
+      <button class="w3-button w3-block w3-black" id="remove-task-now">Remove Task</button>
+    </fieldset>
     <br/>
     <button class="w3-button w3-block w3-orange" id="clear-tasks">Clear All Tasks</button>
   </fieldset>
