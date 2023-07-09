@@ -1,0 +1,16 @@
+name: timeboxing
+base: core20 
+version: '1.0.0' 
+summary: Timeboxing Virtual Assistant
+description: |
+  Timeboxing is a time management technique that involves allocating specific time periods, 
+  called time boxes, for completing tasks or activities. It is a structured approach to managing time 
+  and improving productivity by setting clear boundaries and focusing on one task at a time.
+
+grade: stable
+confinement: strict
+
+parts:
+  my-part:
+    # See 'snapcraft plugins'
+    plugin: nil

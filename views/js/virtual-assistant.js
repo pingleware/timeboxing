@@ -2,7 +2,7 @@ let calendar;
 window.onload = function() {
   var calendarEl = document.getElementById('calendar');
     calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'listWeek'
+      initialView: 'timeGridWeek'
     });
     calendar.render();
     loadSettings();

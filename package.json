@@ -1,10 +1,54 @@
 {
   "name": "timeboxing",
   "version": "1.0.0",
-  "description": "",
+  "description": "Timeboxing Virtual Assistant",
   "main": "main.js",
+  "build": {
+    "appId": "work.pingleware.timeboxing",
+    "buildVersion": "1",
+    "productName": "Timeboxing Virtual Assistant",
+    "copyright": "Copyright © 2023 ${author}",
+    "win": {
+      "icon": "./icons/win/logo.ico",
+      "target": [
+        "nsis",
+        "appx"
+      ]
+    },
+    "linux": {
+      "target": "deb",
+      "icon": "./assets/logo.png",
+      "category": "Office",
+      "synopsis": "Timeboxing Virtual Assistants"
+    },
+    "mac": {
+      "category": "public.app-category.office",
+      "icon": "./icons/mac/logo.icns"
+    },
+    "dmg": {
+      "title": "${productName}_${version}",
+      "icon": "./icons/mac/logo.icns",
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "files": [],
+    "extraFiles": []
+  },
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron .",
+    "dist:mac": "electron-builder --mac --universal",
+    "dist:win": "electron-builder  -win --universal",
+    "dist:snap": "snapcraft remote-build --build-on=amd64,arm64"
   },
   "keywords": [],
   "author": "PRESSPAGE ENTERTAINMENT INC dba PINGLEWARE <maintainers@pingleware.work>",
