@@ -1,7 +1,7 @@
 "use strict"
 
 // electron
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, ipcMain} = require('electron');
 const path = require('path');
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -51,3 +51,54 @@ app.on('activate', function () {
 // dock icon is clicked and there are no other windows open.
 if (mainWindow === null) createWindow()
 })   
+
+/**
+ * REST API
+ */
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers')
+const express = require('express');
+
+const rest = express();
+rest.use(express.json());
+rest.use(express.urlencoded({ extended: true }));
+
+var argv = yargs(hideBin(process.argv))
+.option('host', {
+    alias: 'h',
+    type: 'string',
+    description: 'host name',
+    default: 'localhost',
+    required: false
+})
+.option('port', {
+    alias: 'p',
+    type: 'number',
+    description: 'port',
+    default: 3030,
+    required: false
+})
+.parse()
+
+// Define a route for adding a new task
+rest.post('/task', (req, res) => {
+    const task = req.body.task;
+    const timeLimit = req.body.timeLimit;
+    const timeStart = req.body.timeStart;
+  
+    if (!task || !timeLimit || !timeStart) {
+      return res.status(400).json({ error: 'Task, time limit and starting time are required.' });
+    }
+  
+    const newTask = [task, timeLimit, timeStart];
+    //tasks.push(newTask);
+
+    mainWindow.webContents.send("add_task", newTask);
+  
+    return res.status(201).json(newTask);
+});
+  
+// Start the server
+rest.listen(argv.port, argv.host, () => {
+    console.log(`Server started on http://${argv.host}:${argv.port}`);
+});
