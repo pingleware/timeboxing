@@ -23,7 +23,15 @@ Overall, timeboxing is a valuable technique for managing time effectively, stayi
 
 ## Example
 
+Version 1.0.0
+
 ![1688905053468](image/README/1688905053468.png)
+
+Version 1.1.0
+
+![1688985151716](image/README/1688985151716.png)
+
+The above time boxing as a ride share driver, generates a consistent gross income of $500 per week for the corporation. The following book describes How to Start a company and grow into a Corporate Giant, with Part 2 (coming soon) for steps to take your newly formed company public. Download the book at [https://www.amazon.com/dp/B00NAZ2226](https://www.amazon.com/dp/B00NAZ2226)
 
 ## Migrating from TODO Lists
 
