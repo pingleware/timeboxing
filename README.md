@@ -33,6 +33,8 @@ Version 1.1.0
 
 The above time boxing as a ride share driver, generates a consistent gross income of $500 per week for the corporation. The following book describes How to Start a company and grow into a Corporate Giant, with Part 2 (coming soon) for steps to take your newly formed company public. Download the book at [https://www.amazon.com/dp/B00NAZ2226](https://www.amazon.com/dp/B00NAZ2226)
 
+Learn more at [floridaridesharedriver.com](https://floridaridesharedriver.com)
+
 ## Migrating from TODO Lists
 
 Migrating from traditional to-do lists to time boxing can be a beneficial shift in managing your tasks and increasing productivity. Here are some steps to help you get started with time boxing:

@@ -55,6 +55,7 @@ if (mainWindow === null) createWindow()
 /**
  * REST API
  */
+/*
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers')
 const express = require('express');
@@ -102,3 +103,4 @@ rest.post('/task', (req, res) => {
 rest.listen(argv.port, argv.host, () => {
     console.log(`Server started on http://${argv.host}:${argv.port}`);
 });
+*/
