@@ -14,7 +14,7 @@
       "publisherDisplayName": "PRESSPAGE ENTERTAINMENT",
       "applicationId": "Time Boxing Virtual Assistant",
       "displayName": "Time Boxing Virtual Assistant"
-    },    
+    },
     "win": {
       "icon": "./assets/logo.png",
       "target": [
@@ -55,14 +55,14 @@
     "start": "electron .",
     "dist": "electron-builder -mwl",
     "dist:mac": "electron-builder --mac --universal",
-    "dist:win": "electron-builder  -win --universal",
+    "dist:win": "electron-builder  --win --universal",
     "dist:snap": "snapcraft remote-build --build-on=amd64,arm64"
   },
   "keywords": [],
   "author": "PRESSPAGE ENTERTAINMENT INC dba PINGLEWARE <maintainers@pingleware.work>",
   "license": "CC-BY-4.0",
   "devDependencies": {
-    "electron": "^14.2.9",
+    "electron": "^25.2.0",
     "electron-builder": "^23.4.0"
   },
   "dependencies": {
