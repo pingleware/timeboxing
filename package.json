@@ -1,6 +1,6 @@
 {
   "name": "timeboxing",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Timeboxing Virtual Assistant",
   "main": "main.js",
   "build": {
@@ -8,9 +8,17 @@
     "buildVersion": "1",
     "productName": "Timeboxing Virtual Assistant",
     "copyright": "Copyright © 2023 ${author}",
+    "appx": {
+      "identityName": "PRESSPAGEENTERTAINMENT.TimeBoxingVirtualAssistant",
+      "publisher": "CN=AB16B97C-F4DC-49DA-AB7D-4EF246E94958",
+      "publisherDisplayName": "PRESSPAGE ENTERTAINMENT",
+      "applicationId": "Time Boxing Virtual Assistant",
+      "displayName": "Time Boxing Virtual Assistant"
+    },    
     "win": {
-      "icon": "./assets/logo.ico",
+      "icon": "./assets/logo.png",
       "target": [
+        "nsis",
         "appx"
       ]
     },
@@ -45,6 +53,7 @@
   },
   "scripts": {
     "start": "electron .",
+    "dist": "electron-builder -mwl",
     "dist:mac": "electron-builder --mac --universal",
     "dist:win": "electron-builder  -win --universal",
     "dist:snap": "snapcraft remote-build --build-on=amd64,arm64"
