@@ -1,36 +1,72 @@
 {
   "name": "timeboxing",
-  "version": "1.0.0",
+  "version": "1.2.1",
   "description": "Timeboxing Virtual Assistant",
   "main": "main.js",
   "build": {
     "appId": "work.pingleware.timeboxing",
-    "buildVersion": "20230709121800",
+    "buildVersion": "1",
     "productName": "Timeboxing Virtual Assistant",
     "copyright": "Copyright © 2023 ${author}",
+    "appx": {
+      "identityName": "PRESSPAGEENTERTAINMENT.TimeBoxingVirtualAssistant",
+      "publisher": "CN=AB16B97C-F4DC-49DA-AB7D-4EF246E94958",
+      "publisherDisplayName": "PRESSPAGE ENTERTAINMENT",
+      "applicationId": "Time Boxing Virtual Assistant",
+      "displayName": "Time Boxing Virtual Assistant"
+    },
     "win": {
-      "icon": "./icons/win/logo.ico"
+      "icon": "./assets/logo.png",
+      "target": [
+        "nsis",
+        "appx"
+      ]
     },
     "linux": {
-      "icon": "./assets/logo.png"
+      "target": "deb",
+      "icon": "./assets/logo.png",
+      "category": "Office",
+      "synopsis": "Timeboxing Virtual Assistant"
     },
     "mac": {
-      "icon": "./icons/mac/logo.icns"
+      "category": "public.app-category.business",
+      "icon": "./assets/logo.icns"
+    },
+    "dmg": {
+      "title": "${productName}_${version}",
+      "icon": "./assets/logo.icns",
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
     },
     "files": [],
     "extraFiles": []
   },
   "scripts": {
     "start": "electron .",
+    "dist": "electron-builder -mwl",
     "dist:mac": "electron-builder --mac --universal",
-    "dist:win": "electron-builder  -win --universal",
+    "dist:win": "electron-builder  --win --universal",
     "dist:snap": "snapcraft remote-build --build-on=amd64,arm64"
   },
   "keywords": [],
   "author": "PRESSPAGE ENTERTAINMENT INC dba PINGLEWARE <maintainers@pingleware.work>",
   "license": "CC-BY-4.0",
   "devDependencies": {
-    "electron": "^17.1.2",
-    "electron-builder": "^22.14.13"
-}
+    "electron": "^25.2.0",
+    "electron-builder": "^22.10.5"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "yargs": "^17.7.2"
+  }
 }

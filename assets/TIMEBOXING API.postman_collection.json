@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "7b35bade-b5e4-4fa9-828a-f5e29abb7460",
+		"name": "TIMEBOXING API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9073012"
+	},
+	"item": [
+		{
+			"name": "Add a Task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"task\": \"My API Task\",\n    \"timeLimit\": 120,\n    \"timeStart\": \"2023-07-15 06:00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"task"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

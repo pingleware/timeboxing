@@ -2,17 +2,49 @@ let calendar;
 window.onload = function() {
   var calendarEl = document.getElementById('calendar');
     calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'timeGridWeek'
+      initialView: 'timeGridWeek',
+      customButtons: {
+        addTask: {
+          text: 'Add Task',
+          click: function() {
+            document.getElementById("add-task-dialog").style.display = 'block';
+          }
+        },
+        removeTask: {
+          text: 'Remove Task',
+          click: function() {
+            var events = calendar.getEvents();
+            document.getElementById("remove-task").innerHTML = `<option value="">Select</option>`;
+            events.forEach(function(event, index){
+              console.log(event);
+              document.getElementById("remove-task").innerHTML += `<option value="${index}">${event.title} [${event.start}-${event.end}]</option>`;
+            });
+        
+            document.getElementById("remove-task-dialog").style.display = 'block';
+          }
+        },
+        clearAllTasks: {
+          text: 'Clear All Tasks',
+          click: function() {
+            clearTasks();
+          }
+        }
+      },
+      headerToolbar: {
+        left: 'prev,next today addTask removeTask clearAllTasks',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      }
     });
     calendar.render();
     loadSettings();
     updateCalendar();
-    var events = calendar.getEvents();
-    document.getElementById("remove-task").innerHTML = `<option value="">Select</option>`;
-    events.forEach(function(event, index){
-      console.log(event);
-      document.getElementById("remove-task").innerHTML += `<option value="${index}">${event.title} [${event.start}-${event.end}]</option>`;
-    });
+    //var events = calendar.getEvents();
+    //document.getElementById("remove-task").innerHTML = `<option value="">Select</option>`;
+    //events.forEach(function(event, index){
+    //  console.log(event);
+    //  document.getElementById("remove-task").innerHTML += `<option value="${index}">${event.title} [${event.start}-${event.end}]</option>`;
+    //});
 }
 
 
@@ -26,6 +58,11 @@ function addTask(task, timeLimit, date) {
     document.getElementById("add-timelimit").value = "";
     document.getElementById("add-date").value = "";
   }
+
+window.api.receive("add_task",function(channel,event,newTask){
+  console.log(newTask)
+  addTask(newTask[0],newTask[1],newTask[2]);
+})
   
 // Define a function to display the time boxing list
 function displayTasks() {
@@ -127,6 +164,25 @@ function handleInput(input) {
       console.log("Invalid command.");
   }
 }
+
+document.getElementById("remove-task-now").addEventListener("click",function(){
+  var task_item = Number(document.getElementById("remove-task").value);
+  console.log(task_item)
+  if (task_item > 0) {
+    loadSettings();
+    var updated_tasks = [];
+    tasks.forEach(function(task,index){
+      if (index != task_item) {
+        updated_tasks.push(task);
+      }
+    })
+    tasks = updated_tasks;
+    saveSettings();
+    updateCalendar();
+    document.getElementById('remove-task-dialog').style.display='none';
+  }
+})
+
 
 // Define a function to listen for user input
 function listen() {

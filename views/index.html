@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Time Boxing List Virtual Assistant</title>
+  <title>Time Boxing Virtual Assistant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <style>
@@ -30,35 +30,44 @@
     <legend>Calendar</legend>
     <div id="calendar"></div>
   </fieldset>
-  <fieldset>
-    <legend>Task Management</legend>
-    <fieldset>
-      <legend>Add a Task</legend>
-      <label for="add-task">Task</label>
-      <input type="text" class="w3-input w3-block" id="add-task" value="" />
-      <label for="add-timelimit">Time Limit (<i>in minutes</i>)</label>
-      <input type="number" steps="any" class="w3-input w3-block" id="add-timelimit" value="" />
-      <label for="add-date">Date &amp; Time</label>
-      <input type="datetime-local" class="w3-input w3-block" id="add-date" value="" />
-      <button class="w3-button w3-block w3-black" id="add-now">Add</button>  
-    </fieldset>
-    <fieldset>
-      <legend>Remove a Task</legend>
-      <label for="remove-task">Task</label>
-      <select id="remove-task" class="w3-input w3-block"></select>
-      <button class="w3-button w3-block w3-black" id="remove-task-now">Remove Task</button>
-    </fieldset>
-    <br/>
-    <button class="w3-button w3-block w3-orange" id="clear-tasks">Clear All Tasks</button>
-  </fieldset>
+  <!-- ADD TASk DIALOG -->
+  <div id="add-task-dialog" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container w3-white">
+        <h2 class="w3-green">Add New Task</h2>
+        <legend>Add a Task</legend>
+        <label for="add-task">Task</label>
+        <input type="text" class="w3-input w3-block" id="add-task" value="" />
+        <label for="add-timelimit">Time Limit (<i>in minutes</i>)</label>
+        <input type="number" steps="any" class="w3-input w3-block" id="add-timelimit" value="" />
+        <label for="add-date">Date &amp; Time</label>
+        <input type="datetime-local" class="w3-input w3-block" id="add-date" value="" />
+        <button class="w3-button w3-block w3-black" id="add-now">Add</button>  
+        <br/>
+        <button class="w3-button w3-block w3-orange" onclick="document.getElementById('add-task-dialog').style.display='none'">Cancel</button>  
+        <br/>
+      </div>
+    </div>
+  </div>
+  <!-- REMOVE TASk DIALOG -->
+  <div id="remove-task-dialog" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container w3-white">
+        <h2 class="w3-red">Remove a Task</h2>
+        <label for="remove-task">Task</label>
+        <select id="remove-task" class="w3-input w3-block"></select>
+        <button class="w3-button w3-block w3-black" id="remove-task-now">Remove Task</button>
+        <br/>
+        <button class="w3-button w3-block w3-orange" onclick="document.getElementById('remove-task-dialog').style.display='none'">Cancel</button>
+        <br/>
+      </div>
+    </div>
+  </div>
   <script src="js/virtual-assistant.js"></script>
   <script>
     document.getElementById("add-now").addEventListener("click",function(e){
       e.preventDefault();
       addTask(document.getElementById("add-task").value,document.getElementById("add-timelimit").value,document.getElementById("add-date").value);
-    })
-    document.getElementById("clear-tasks").addEventListener("click",function(){
-      clearTasks();
     })
   </script>
 </body>
