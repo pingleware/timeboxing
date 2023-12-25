@@ -3,8 +3,4 @@ package-lock.json
 dist/
 *.snap
 *.txt
-<<<<<<< HEAD
 ._*
-=======
-._*
->>>>>>> 58ce075b597436e7b673f85ac12c5a63110ba5d8
