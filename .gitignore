@@ -4,3 +4,6 @@ dist/
 *.snap
 *.txt
 ._*
+parts/
+prime/
+snap/.snapcraft/
