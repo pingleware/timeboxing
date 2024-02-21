@@ -1,6 +1,6 @@
 {
   "name": "timeboxing",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "Timeboxing Virtual Assistant",
   "main": "main.js",
   "build": {
@@ -8,9 +8,17 @@
     "buildVersion": "1",
     "productName": "Timeboxing Virtual Assistant",
     "copyright": "Copyright © 2023 ${author}",
+    "appx": {
+      "identityName": "PRESSPAGEENTERTAINMENT.TimeBoxingVirtualAssistant",
+      "publisher": "CN=AB16B97C-F4DC-49DA-AB7D-4EF246E94958",
+      "publisherDisplayName": "PRESSPAGE ENTERTAINMENT",
+      "applicationId": "Time Boxing Virtual Assistant",
+      "displayName": "Time Boxing Virtual Assistant"
+    },
     "win": {
-      "icon": "./assets/logo.ico",
+      "icon": "./assets/logo.png",
       "target": [
+        "nsis",
         "appx"
       ]
     },
@@ -45,15 +53,25 @@
   },
   "scripts": {
     "start": "electron .",
+    "dist": "electron-builder -mwl",
     "dist:mac": "electron-builder --mac --universal",
+<<<<<<< HEAD
     "dist:win": "electron-builder  -win --universal",
     "dist:snap": "snapcraft clean && snapcraft"
+=======
+    "dist:win": "electron-builder  --win --universal",
+    "dist:snap": "snapcraft remote-build --build-on=amd64,arm64"
+>>>>>>> e315c402c48c8ae3fe8653a38a28d820e23d4ce4
   },
   "keywords": [],
   "author": "PRESSPAGE ENTERTAINMENT INC dba PINGLEWARE <maintainers@pingleware.work>",
   "license": "CC-BY-4.0",
   "devDependencies": {
-    "electron": "^14.2.9",
-    "electron-builder": "^23.4.0"
+    "electron": "^25.2.0",
+    "electron-builder": "^24.9.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "yargs": "^17.7.2"
   }
 }
