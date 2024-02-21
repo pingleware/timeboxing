@@ -1,6 +1,6 @@
 {
   "name": "timeboxing",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Timeboxing Virtual Assistant",
   "main": "main.js",
   "build": {
@@ -47,7 +47,7 @@
     "start": "electron .",
     "dist:mac": "electron-builder --mac --universal",
     "dist:win": "electron-builder  -win --universal",
-    "dist:snap": "snapcraft remote-build --build-on=amd64,arm64"
+    "dist:snap": "snapcraft clean && snapcraft"
   },
   "keywords": [],
   "author": "PRESSPAGE ENTERTAINMENT INC dba PINGLEWARE <maintainers@pingleware.work>",
