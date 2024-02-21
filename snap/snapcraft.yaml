@@ -1,6 +1,6 @@
 name: timeboxing
 base: core18 
-version: '1.2.1' 
+version: '1.2.2' 
 summary: Timeboxing Virtual Assistant
 description: |
   Timeboxing is a time management technique that involves allocating specific time periods, 
